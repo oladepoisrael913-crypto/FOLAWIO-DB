@@ -21,7 +21,7 @@ const uploadProduct = async (req, res) => {
       image,
     });
 
-    await getUserId.products.push(Product._id);
+    await getUserId.products.push(newProduct._id);
     await getUserId.save();
     res
       .status(201)
@@ -29,18 +29,18 @@ const uploadProduct = async (req, res) => {
   } catch (error) {
     res.status(500).json({ message: "Error uploading product", error });
   }
-
-  /**  get one product */
-  // get all product
-  const getAllProducts = async (req, res) => {
-    try {
-      const products = await productModel.find();
-      res.status(200).json(products);
-    } catch (error) {
-      res.status(500).json({ message: "Error fetching products", error });
-    }
-  };
-  //update product
-  // delete product
 };
+
+// get all products
+const getAllProducts = async (req, res) => {
+  try {
+    const products = await productModel.find();
+    res.status(200).json(products);
+  } catch (error) {
+    res.status(500).json({ message: "Error fetching products", error });
+  }
+};
+
+// update product
+// delete product
 module.exports = { uploadProduct, getAllProducts };
