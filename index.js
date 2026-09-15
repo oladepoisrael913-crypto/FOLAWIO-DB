@@ -9,8 +9,9 @@ const productRoutes = require("./routes/productRoutes.js");
 const port = 8000;
 const mongoose = require("mongoose");
 const compass_string = "mongodb://localhost:27017/oladepoisrael913_db";
+const atlas_string =  process.env.ATLAS_STRING || "mongodb+srv://oladepoisrael913:olade
 mongoose
-  .connect(compass_string)
+  .connect(atlas_string)
   .then(() => {
     console.log("MongoDB Connected"); // resolve messgage for my  project
   })
